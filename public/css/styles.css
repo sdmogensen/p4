@@ -1,0 +1,63 @@
+body {
+    background: whitesmoke;
+    color: #444;
+    font-family: Geneva;
+    margin-right: 5%;
+    margin-left: 5%;
+    margin-top: 2%;
+    text-align: center;
+}
+
+h2 {
+    margin: 0px;
+    text-align: center;
+}
+
+.checkbox {
+    cursor:pointer;
+}
+
+.logo {
+    display: block;
+    margin: auto;
+    width: 200px;
+    padding: 0px 0px 10px 0px;
+}
+
+.smaller {
+    font-size:10pt;
+}
+
+.small {
+    font-size:11pt;
+}
+
+.strong {
+    font-weight: bold;
+    font-size:14pt;
+}
+
+.stronger {
+    font-weight: bold;
+    font-size:17pt;
+}
+
+.input {
+    font-size:14pt;
+    height:30px;
+    width:40px;
+}
+
+.button {
+    background: black;
+    color: whitesmoke;
+    border: none;
+    padding: 6px 10px;
+    font-size: 13pt;
+    border-radius: 10px;
+    cursor:pointer
+}
+
+.error {
+    color: red;
+}
