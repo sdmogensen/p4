@@ -13,14 +13,14 @@
 
 Route::get('/', 'PageController@welcome');
 
-Route::get('/wishlists/{user}', 'GiftController@guestIndex')->name('gifts.guestIndex');
+Route::get('/wishlists/{username}', 'GiftController@guestIndex')->name('gifts.guestIndex');
 Route::get('/gifts/add', 'GiftController@create')->name('gifts.create');
 Route::post('/gifts/add', 'GiftController@store')->name('gifts.store');
 Route::get('/gifts/index', 'GiftController@index')->name('gifts.index');
-Route::get('/gifts/edit/{gift}', 'GiftController@edit')->name('gifts.edit');
-Route::post('/gifts/edit/{gift}', 'GiftController@update')->name('gifts.update');
-Route::delete('/gifts/edit/{gift}', 'GiftController@destroy')->name('gifts.destroy');
-Route::post('/wishlists/{user}/purchased/{gift}', 'GiftController@purchased')->name('gifts.purchased');
+Route::get('/gifts/edit/{gift_id}', 'GiftController@edit')->name('gifts.edit');
+Route::post('/gifts/edit/{gift_id}', 'GiftController@update')->name('gifts.update');
+Route::delete('/gifts/edit/{gift_id}', 'GiftController@destroy')->name('gifts.destroy');
+Route::post('/wishlists/{username}/purchased', 'GiftController@purchased')->name('gifts.purchased');
 
 Route::get('/debug', function() {
 

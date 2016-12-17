@@ -1,36 +1,43 @@
 @extends('layouts.master')
 
 @section('body')
-    <a class='small' href='{{ url('/register') }}'>
+
+    <a class='small' href='/register'>
         New user? Register here.
     </a>
-    <br><br><br><h2>Welcome to the Gifter App!</h2><br>
+    <br><br><h2>Welcome to the Gifter App!</h2><br>
 
-    <form method='POST' action='{{ url('/login') }}'>
-
+    <form method='POST' action='/login'>
         {{ csrf_field() }}
 
-        <label>Email:
-            <input type='text' name='email' value='{{ old('email','jill@harvard.edu') }}' required autofocus>
-        </label><br>
-        @if ($errors->has('email'))
-            <div class='error'>{{ $errors->first('email') }}</div>
-        @endif
+        <table class='centered_table bold'>
+            <tr>
+                <th class='right_justify'>
+                    <label for='email'>Email:</label>
+                </th>
+                <td class='left_justify'>
+                    <input id='email' class='input' type='text' name='email' value='{{ old('email','jill@harvard.edu') }}' autofocus>
+                </td>
+            </tr>
+            @if ($errors->has('email'))
+                <tr><td></td><td class='left_justify error'>{{ $errors->first('email') }}</td></tr>
+            @endif
 
-        <label>Password:
-            <input type='password' name='password' value='helloworld' required>
-        </label><br>
-        @if ($errors->has('password'))
-            <div class='error'>{{ $errors->first('password') }}</div>
-        @endif
+            <tr>
+                <td class='right_justify'>
+                    <label for='password'>Password:</label>
+                </td>
+                <td class='left_justify'>
+                    <input id='password' class='input' type='password' name='password' value='helloworld'>
+                </td>
+            </tr>
+            @if ($errors->has('password'))
+                <tr><td></td><td class='left_justify error'>{{ $errors->first('password') }}</td></tr>
+            @endif
 
-        <!-- <label class='checkbox'><input type='checkbox' name='remember'> Remember Me</label><br> -->
+        </table><br>
 
-        <br><button class='button' type='submit'>Login</button><br>
-
-        <!-- <a class='smaller' href='{{ url('/password/reset') }}'>
-            Forgot Your Password?
-        </a> -->
+        <input type='submit' class='button' value='Login'>
 
     </form>
 

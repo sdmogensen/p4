@@ -23,6 +23,7 @@ class GiftsTableSeeder extends Seeder
             'image' => 'http://pisces.bbystatic.com/image2/BestBuy_US/images/products/5388/5388900_sd.jpg',
             'retailer_id' => $retailer_id,
             'purchased' => false,
+            'user_id' => 1,
         ]);
 
         $retailer_id = Retailer::where('name','=','Walmart')->pluck('id')->first();
@@ -36,6 +37,7 @@ class GiftsTableSeeder extends Seeder
             'image' => 'https://ll-us-i5.wal.co/asr/18a6e567-7a35-429d-9674-8e3afd4def7b_1.634e747546d359b65cabfe382aff73c5.jpeg',
             'retailer_id' => $retailer_id,
             'purchased' => false,
+            'user_id' => 1,
         ]);
 
         $retailer_id = Retailer::where('name','=','Amazon')->pluck('id')->first();
@@ -49,6 +51,7 @@ class GiftsTableSeeder extends Seeder
             'image' => 'https://images-na.ssl-images-amazon.com/images/I/511hrvW6EeL.jpg',
             'retailer_id' => $retailer_id,
             'purchased' => false,
+            'user_id' => 1,
         ]);
     }
 }

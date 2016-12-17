@@ -1,42 +1,76 @@
 @extends('layouts.master')
 
+@section('title')
+    Register
+@stop
+
 @section('body')
-    <br><h2>Registration</h2><br>
-        <form method='POST' action='{{ url('/register') }}'>
-            {{ csrf_field() }}
 
-            <label>Name:
-                <input type='text' name='name' value='{{ old('name','steve') }}' required autofocus>
-            </label><br>
+    <h2>Registration</h2><br>
+    <form method='POST' action='/register'>
+        {{ csrf_field() }}
+
+        <table class='centered_table bold'>
+            <tr>
+                <td class='right_justify'>
+                    <label for='name'>Name:</label>
+                </td>
+                <td class='left_justify'>
+                    <input id='name' class='input' type='text' name='name' value='{{ old('name','steve') }}' autofocus>
+                </td>
+            </tr>
             @if ($errors->has('name'))
-                <div class='error'>{{ $errors->first('name') }}</div>
+                <tr><td></td><td class='left_justify error'>{{ $errors->first('name') }}</td></tr>
             @endif
 
-            <label>Username:
-                <input type='text' name='username' value='{{ old('username','sdm') }}' required>
-            </label><br>
+            <tr>
+                <td class='right_justify'>
+                    <label for='username'>Username:</label>
+                </td>
+                <td class='left_justify'>
+                    <input id='username' class='input' type='text' name='username' value='{{ old('username','sdm') }}'>
+                </td>
+            </tr>
             @if ($errors->has('username'))
-                <div class='error'>{{ $errors->first('username') }}</div>
+                <tr><td></td><td class='left_justify error'>{{ $errors->first('username') }}</td></tr>
             @endif
 
-            <label>E-Mail Address:
-                <input type='text' name='email' value='{{ old('email','steve@steve.com') }}' required>
-            </label><br>
+            <tr>
+                <td class='right_justify'>
+                    <label for='email'>E-Mail Address:</label>
+                </td>
+                <td class='left_justify'>
+                    <input id='email' class='input' type='text' name='email' value='{{ old('email','steve@steve.com') }}'>
+                </td>
+            </tr>
             @if ($errors->has('email'))
-                <div class='error'>{{ $errors->first('email') }}</div>
+                <tr><td></td><td class='left_justify error'>{{ $errors->first('email') }}</td></tr>
             @endif
 
-            <label>Password:
-                <input type='password' name='password' required value='helloo'>
-            </label><br>
+            <tr>
+                <td class='right_justify'>
+                    <label for='password'>Password:</label>
+                </td>
+                <td class='left_justify'>
+                    <input id='password' class='input' type='password' name='password' value='helloworld'>
+                </td>
+            </tr>
             @if ($errors->has('password'))
-                <div class='error'>{{ $errors->first('password') }}</div>
+                <tr><td></td><td class='left_justify error'>{{ $errors->first('password') }}</td></tr>
             @endif
 
-            <label>Confirm Password:
-                <input type='password' name='password_confirmation' required value='helloo'>
-            </label><br><br>
+            <tr>
+                <td class='right_justify'>
+                    <label for='password_confirmation'>Confirm Password:</label>
+                </td>
+                <td class='left_justify'>
+                    <input id='password_confirmation' class='input' type='password' name='password_confirmation' value='helloworld'>
+                </td>
+            </tr>
+        </table><br>
 
-            <button class='button'>Register</button>
+        <input type='submit' class='button' value='Register'>
+
+    </form>
 
 @endsection
