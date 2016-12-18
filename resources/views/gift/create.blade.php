@@ -18,7 +18,7 @@
                 </td>
                 <td class='left_justify'>
                     <select class='select' id='retailer' name='retailer'>
-                        <option selected disabled hidden></option>
+                        <option selected disabled hidden>&nbsp;</option>
                         @foreach($retailers_for_dropdown as $retailer_id => $retailer)
                             <option value='{{ $retailer_id }}'>{{ $retailer }}</option>
                         @endforeach

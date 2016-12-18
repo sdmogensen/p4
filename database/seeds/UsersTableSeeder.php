@@ -15,9 +15,9 @@ class UsersTableSeeder extends Seeder
 
         # Define the users you want to add
         $users = [
-            ['jill@harvard.edu','jill','helloworld'],
-            ['jamal@harvard.edu','jamal','helloworld'],
-            ['sdmogensen@gmail.com','steve','helloworld']
+            ['jill@harvard.edu','Jill','helloworld'],
+            ['jamal@harvard.edu','Jamal','helloworld'],
+            ['sdmogensen@gmail.com','Steve','helloworld']
         ];
 
         # Get existing users to prevent duplicates
