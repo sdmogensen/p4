@@ -16,7 +16,7 @@
                     <label for='name'>Name:</label>
                 </td>
                 <td class='left_justify'>
-                    <input id='name' class='input' type='text' name='name' value='{{ old('name','steve') }}' autofocus>
+                    <input id='name' class='input' type='text' name='name' value='{{ old('name') }}' autofocus>
                 </td>
             </tr>
             @if ($errors->has('name'))
@@ -28,7 +28,7 @@
                     <label for='username'>Username:</label>
                 </td>
                 <td class='left_justify'>
-                    <input id='username' class='input' type='text' name='username' value='{{ old('username','sdm') }}'>
+                    <input id='username' class='input' type='text' name='username' value='{{ old('username') }}'>
                 </td>
             </tr>
             @if ($errors->has('username'))
@@ -40,7 +40,7 @@
                     <label for='email'>E-Mail Address:</label>
                 </td>
                 <td class='left_justify'>
-                    <input id='email' class='input' type='text' name='email' value='{{ old('email','steve@steve.com') }}'>
+                    <input id='email' class='input' type='text' name='email' value='{{ old('email') }}'>
                 </td>
             </tr>
             @if ($errors->has('email'))
@@ -52,7 +52,7 @@
                     <label for='password'>Password:</label>
                 </td>
                 <td class='left_justify'>
-                    <input id='password' class='input' type='password' name='password' value='helloworld'>
+                    <input id='password' class='input' type='password' name='password'>
                 </td>
             </tr>
             @if ($errors->has('password'))
@@ -64,7 +64,7 @@
                     <label for='password_confirmation'>Confirm Password:</label>
                 </td>
                 <td class='left_justify'>
-                    <input id='password_confirmation' class='input' type='password' name='password_confirmation' value='helloworld'>
+                    <input id='password_confirmation' class='input' type='password' name='password_confirmation'>
                 </td>
             </tr>
         </table><br>
