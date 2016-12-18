@@ -11,14 +11,14 @@
         <table class='centered_table bold'>
             <tr>
                 <th class='right_justify'>
-                    <label for='email'>Email:</label>
+                    <label for='username'>Username or Email:</label>
                 </th>
                 <td class='left_justify'>
-                    <input id='email' class='input' type='text' name='email' value='{{ old('email') }}' autofocus>
+                    <input id='username' class='input' type='text' name='username' value='{{ old('username') }}' autofocus>
                 </td>
             </tr>
-            @if ($errors->has('email'))
-                <tr><td></td><td class='left_justify error'>{{ $errors->first('email') }}</td></tr>
+            @if ($errors->has('username'))
+                <tr><td></td><td class='left_justify error'>{{ $errors->first('username') }}</td></tr>
             @endif
 
             <tr>

@@ -15,9 +15,9 @@ class UsersTableSeeder extends Seeder
 
         # Define the users you want to add
         $users = [
-            ['jill@harvard.edu','jill','jill','helloworld'],
-            ['jamal@harvard.edu','jamal','jamal','helloworld'],
-            ['sdmogensen@gmail.com','steve','steve','helloworld']
+            ['jill@harvard.edu','jill','helloworld'],
+            ['jamal@harvard.edu','jamal','helloworld'],
+            ['sdmogensen@gmail.com','steve','helloworld']
         ];
 
         # Get existing users to prevent duplicates
@@ -29,9 +29,8 @@ class UsersTableSeeder extends Seeder
             if(!array_key_exists($user[0],$existingUsers)) {
                 $user = User::create([
                     'email' => $user[0],
-                    'name' => $user[1],
-                    'username' => $user[2],
-                    'password' => Hash::make($user[3]),
+                    'username' => $user[1],
+                    'password' => Hash::make($user[2]),
                 ]);
             }
         }

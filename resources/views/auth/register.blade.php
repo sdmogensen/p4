@@ -13,18 +13,6 @@
         <table class='centered_table bold'>
             <tr>
                 <td class='right_justify'>
-                    <label for='name'>Name:</label>
-                </td>
-                <td class='left_justify'>
-                    <input id='name' class='input' type='text' name='name' value='{{ old('name') }}' autofocus>
-                </td>
-            </tr>
-            @if ($errors->has('name'))
-                <tr><td></td><td class='left_justify error'>{{ $errors->first('name') }}</td></tr>
-            @endif
-
-            <tr>
-                <td class='right_justify'>
                     <label for='username'>Username:</label>
                 </td>
                 <td class='left_justify'>
