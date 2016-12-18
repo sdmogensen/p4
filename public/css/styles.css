@@ -140,6 +140,10 @@ body {
     font-size:16pt;
 }
 
+.biggest {
+    font-size:20pt;
+}
+
 .bold {
     font-weight: bold;
 }

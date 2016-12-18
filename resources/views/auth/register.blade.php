@@ -6,7 +6,8 @@
 
 @section('body')
 
-    <h2>Registration</h2><br>
+    <h1>Registration</h1>
+
     <form method='POST' action='/register'>
         {{ csrf_field() }}
 

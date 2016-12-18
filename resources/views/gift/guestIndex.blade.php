@@ -6,7 +6,7 @@
 
 @section('body')
 
-    <h1>{{ $username }}'s wishlist</h1>
+    <h1 class='biggest black'>{{ $username }}'s wishlist</h1>
 
     @if(sizeof($gifts) == 0)
         {{ $username }} has not added any gifts to their wishlist yet.
