@@ -14,13 +14,16 @@
 Route::get('/', 'PageController@welcome');
 
 Route::get('/wishlists/{username}', 'GiftController@guestIndex')->name('gifts.guestIndex');
-Route::get('/gifts/add', 'GiftController@create')->name('gifts.create');
+Route::get('/gifts/add', 'GiftController@create')->name('gifts.create')->middleware('auth');
 Route::post('/gifts/add', 'GiftController@store')->name('gifts.store');
-Route::get('/gifts/index', 'GiftController@index')->name('gifts.index');
-Route::get('/gifts/edit/{gift_id}', 'GiftController@edit')->name('gifts.edit');
+Route::get('/gifts/index', 'GiftController@index')->name('gifts.index')->middleware('auth');
+Route::get('/gifts/edit/{gift_id}', 'GiftController@edit')->name('gifts.edit')->middleware('auth');
 Route::post('/gifts/edit/{gift_id}', 'GiftController@update')->name('gifts.update');
 Route::delete('/gifts/edit/{gift_id}', 'GiftController@destroy')->name('gifts.destroy');
 Route::post('/wishlists/{username}/purchased', 'GiftController@purchased')->name('gifts.purchased');
+
+Route::get('/retailers/add', 'RetailerController@create')->name('retailers.create');
+Route::post('/retailers/add', 'RetailerController@store')->name('retailers.store');
 
 Route::get('/debug', function() {
 
@@ -67,24 +70,21 @@ if(App::environment('local')) {
         return 'Dropped gifter; created gifter.';
     });
 
-};
-
-if(App::environment() == 'local') {
     Route::get('/logs', '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index');
+
+    Route::get('/login-status', function() {
+
+        # You may access the authenticated user via the Auth facade
+        $user = Auth::user();
+
+        if($user)
+            dump($user->toArray());
+        else
+            dump('You are not logged in.');
+
+        return;
+    });
 }
-
-Route::get('/login-status', function() {
-
-    # You may access the authenticated user via the Auth facade
-    $user = Auth::user();
-
-    if($user)
-        dump($user->toArray());
-    else
-        dump('You are not logged in.');
-
-    return;
-});
 
 Auth::routes();
 Route::get('/logout','Auth\LoginController@logout')->name('logout');

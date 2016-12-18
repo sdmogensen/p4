@@ -1,5 +1,9 @@
 @extends('layouts.master')
 
+@section('title')
+    Gift List
+@stop
+
 @section('body')
 
     <h1>{{ $username }}'s wishlist</h1>
@@ -12,9 +16,11 @@
                 <span class='bigger bolder black'> {{ $gift->name }} </span><br><br>
                 <table class='bold'>
                     <tr>
-                        <td>
-                            <img src='{{ $gift->image }}' alt='{{ $gift->name }}' width='200'>
-                        </td>
+                        @if($gift->image)
+                            <td>
+                                <img src='{{ $gift->image }}' alt='{{ $gift->name }}' width='200'>
+                            </td>
+                        @endif
                         <td class='top_align'>
                             Price: ${{ $gift->price }}<br><br>
                             Purchase Link:<br>
@@ -25,6 +31,7 @@
                                 <form method='POST' action='/wishlists/{{ $username }}/purchased'>
                                     {{ csrf_field() }}
                                     <input type='hidden' name='gift_id' value='{{ $gift->id }}'>
+                                    <input type='hidden' name='purchased' value='true'>
                                     <input type='submit' class='link_button' value='Click here if you&apos;ve purchased this gift'>
                                 </form>
                             @endif

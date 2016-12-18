@@ -2,9 +2,7 @@
 
 @section('body')
 
-    <a class='small' href='/register'>
-        New user? Register here.
-    </a>
+    <a class='small' href='/register'>New user? Register here.</a>
     <br><br><h2>Welcome to the Gifter App!</h2><br>
 
     <form method='POST' action='/login'>

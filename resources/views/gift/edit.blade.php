@@ -6,12 +6,6 @@
 
 @section('body')
 
-    <a href='/gifts/index'>My List</a>
-    &nbsp;
-    <a href='/gifts/add'>Add Gift</a>
-    &nbsp;
-    <a href='/logout'>Logout</a><br>
-
     <h1>Edit Gift: {{ $gift->name }}</h1>
 
     <form method='POST' action='/gifts/edit/{{ $gift->id }}'>
@@ -62,10 +56,10 @@
                     <input type='text' class='input2' id='price' name='price' value='{{ old('price',$gift->price) }}'>
                 </td>
             </tr>
-
             @if ($errors->has('price'))
                 <tr><td></td><td class='left_justify error'>{{ $errors->first('price') }}</td></tr>
             @endif
+
             <tr>
                 <td class='right_justify'>
                     <label for='url'><span class='red'>*</span>Purchase Link:</label>
@@ -74,10 +68,10 @@
                     <input type='text' class='input2' id='url' name='purchase_link' value='{{ old('purchase_link',$gift->url) }}'>
                 </td>
             </tr>
-
             @if ($errors->has('purchase_link'))
                 <tr><td></td><td class='left_justify error'>{{ $errors->first('purchase_link') }}</td></tr>
             @endif
+
             <tr>
                 <td class='right_justify'>
                     <label for='image'>Image url:</label>
@@ -89,6 +83,15 @@
             @if ($errors->has('image_url'))
                 <tr><td></td><td class='left_justify error'>{{ $errors->first('image_url') }}</td></tr>
             @endif
+
+            <tr>
+                <td class='right_justify'>
+                    <label for='purchased'>Purchased:</label>
+                </td>
+                <td class='left_justify'>
+                    <input type='checkbox' id='purchased' name='purchased' value='true' {{ $gift->purchased ? 'checked' : '' }}>
+                </td>
+            </tr>
         </table><br>
 
         <input type='submit' class='button' value='Edit Gift'><br>

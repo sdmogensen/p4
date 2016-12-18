@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Gifter\Retailer;
 use Gifter\Gift;
 use Gifter\User;
+use Session;
 
 class GiftController extends Controller
 {
@@ -32,9 +33,20 @@ class GiftController extends Controller
      */
     public function purchased(Request $request, $username)
     {
-        $gift = Gift::find($request->input('gift_id'));
-        $gift->purchased = true;
+        $gift_id = $request->input('gift_id');
+        $purchased = $request->input('purchased') ? true : false;
+
+        $gift = Gift::find($gift_id);
+        $gift->purchased = $purchased;
         $gift->save();
+
+        if ($purchased) {
+            Session::flash('flash_message', $gift->name.' has been marked as purchased. ');
+            Session::flash('purchase_undo_link', $gift_id);
+        }
+        else {
+            Session::flash('flash_message', $gift->name.' has been marked as unpurchased. ');
+        }
 
         return redirect('/wishlists/'.$username);
     }
@@ -53,9 +65,10 @@ class GiftController extends Controller
     /**
      * GET
      */
-    public function create()
+    public function create(Request $request)
     {
-        return view('gift.create')->with('retailers_for_dropdown', Retailer::getForDropdown());
+        return view('gift.create')->with('retailers_for_dropdown',
+                                         Retailer::getForDropdown($request->user()->id));
     }
 
     /**
@@ -82,7 +95,7 @@ class GiftController extends Controller
 
         $gift->save();
 
-        // Session::flash('flash_message', $gift->name.' has been added to your gift list.');
+        Session::flash('flash_message', $gift->name.' has been added to your gift list.');
 
         return redirect('/gifts/index');
     }
@@ -90,18 +103,10 @@ class GiftController extends Controller
     /**
      * GET
      */
-    // public function show($id)
-    // {
-    //     //
-    // }
-
-    /**
-     * GET
-     */
-    public function edit($gift_id)
+    public function edit(Request $request, $gift_id)
     {
         return view('gift.edit')->with('gift', Gift::find($gift_id))
-                                ->with('retailers_for_dropdown', Retailer::getForDropdown());
+                                ->with('retailers_for_dropdown', Retailer::getForDropdown($request->user()->id));
     }
 
     /**
@@ -123,10 +128,11 @@ class GiftController extends Controller
         $gift->price = $request->price;
         $gift->url = $request->purchase_link;
         $gift->image = $request->image_url;
+        $gift->purchased = $request->purchased ? true : false;
 
         $gift->save();
 
-        // Session::flash('flash_message', $gift->name.' has been added to your gift list.');
+        Session::flash('flash_message', $gift->name.' has been edited.');
 
         return redirect('/gifts/index');
     }
@@ -139,9 +145,8 @@ class GiftController extends Controller
         $gift = Gift::find($id);
         $gift->delete();
 
-        // Session::flash('flash_message', $book->title.' was deleted.');
+        Session::flash('flash_message', $gift->name.' has been deleted.');
 
         return redirect('/gifts/index');
     }
-
 }

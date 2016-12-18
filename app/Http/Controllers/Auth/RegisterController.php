@@ -6,6 +6,9 @@ use Gifter\User;
 use Validator;
 use Gifter\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Http\Request;
+use Gifter\Retailer;
+use Session;
 
 class RegisterController extends Controller
 {
@@ -70,4 +73,18 @@ class RegisterController extends Controller
             'password' => bcrypt($data['password']),
         ]);
     }
+
+    /**
+     * The user has been registered.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  mixed  $user
+     * @return mixed
+     */
+    protected function registered(Request $request, $user)
+    {
+        Retailer::addRetailersToUser($user->id);
+        Session::flash('flash_message', $user->username.' has been registered.');
+    }
+
 }

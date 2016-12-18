@@ -6,12 +6,6 @@
 
 @section('body')
 
-    <a href='/gifts/index'>My List</a>
-    &nbsp;
-    <a href='/gifts/add'>Add Gift</a>
-    &nbsp;
-    <a href='/logout'>Logout</a><br>
-
     <h1>Add a new gift</h1>
 
     <form method='POST' action='/gifts/add'>

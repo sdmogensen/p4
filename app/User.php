@@ -31,4 +31,9 @@ class User extends Authenticatable
         # User has many gifts
         return $this->hasMany('Gifter\Gift');
     }
+
+    public function retailers() {
+        # User has many retailers
+        return $this->hasMany('Gifter\Retailer');
+    }
 }
