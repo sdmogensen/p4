@@ -17,7 +17,7 @@
                     <label for='retailer'>Retailer Name:</label>
                 </td>
                 <td class='left_justify'>
-                    <input type='text' class='input' id='retailer' name='retailer_name' value='{{ old('retailer_name','Big Box Store') }}' autofocus>
+                    <input type='text' class='input' id='retailer' name='retailer_name' value='{{ old('retailer_name') }}' autofocus>
                 </td>
             </tr>
             @if ($errors->has('retailer_name'))

@@ -14,17 +14,8 @@ class ConnectGiftsAndRetailers extends Migration
     public function up()
     {
         Schema::table('gifts', function (Blueprint $table) {
-
-            # Remove the field associated with the old way we were storing authors
-            # Whether you need this or not depends on whether your books table is built with an authors column
-            # $table->dropColumn('author');
-
-            # Add a new INT field called `author_id` that has to be unsigned (i.e. positive)
             $table->integer('retailer_id')->unsigned();
-
-            # This field `author_id` is a foreign key that connects to the `id` field in the `authors` table
             $table->foreign('retailer_id')->references('id')->on('retailers');
-
         });
     }
 
@@ -36,11 +27,7 @@ class ConnectGiftsAndRetailers extends Migration
     public function down()
     {
         Schema::table('gifts', function (Blueprint $table) {
-
-            # ref: http://laravel.com/docs/migrations#dropping-indexes
-            # combine tablename + fk field name + the word "foreign"
             $table->dropForeign('gifts_retailer_id_foreign');
-
             $table->dropColumn('retailer_id');
         });
     }

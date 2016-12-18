@@ -16,7 +16,6 @@ class CreateRetailersTable extends Migration
         Schema::create('retailers', function (Blueprint $table) {
             $table->increments('id');
             $table->timestamps();
-
             $table->string('name');
         });
     }

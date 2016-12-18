@@ -14,7 +14,7 @@
                     <label for='email'>Email:</label>
                 </th>
                 <td class='left_justify'>
-                    <input id='email' class='input' type='text' name='email' value='{{ old('email','jill@harvard.edu') }}' autofocus>
+                    <input id='email' class='input' type='text' name='email' value='{{ old('email') }}' autofocus>
                 </td>
             </tr>
             @if ($errors->has('email'))
@@ -26,7 +26,7 @@
                     <label for='password'>Password:</label>
                 </td>
                 <td class='left_justify'>
-                    <input id='password' class='input' type='password' name='password' value='helloworld'>
+                    <input id='password' class='input' type='password' name='password'>
                 </td>
             </tr>
             @if ($errors->has('password'))

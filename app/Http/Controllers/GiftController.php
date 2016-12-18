@@ -78,10 +78,10 @@ class GiftController extends Controller
     {
         $this->validate($request, [
             'retailer' => 'required',
-            'gift_name' => 'required',
-            'price' => 'required|numeric|min:0.01',
-            'purchase_link' => 'required|url',
-            'image_url' => 'url',
+            'gift_name' => 'required|max:255',
+            'price' => 'required|numeric|min:0.01|max:999999.99',
+            'purchase_link' => 'required|url|max:255',
+            'image_url' => 'url|max:255',
         ]);
 
         $gift = new Gift();
@@ -116,10 +116,10 @@ class GiftController extends Controller
     {
         $this->validate($request, [
             'retailer' => 'required',
-            'gift_name' => 'required',
-            'price' => 'required|numeric|min:0.01',
-            'purchase_link' => 'required|url',
-            'image_url' => 'url',
+            'gift_name' => 'required|max:255',
+            'price' => 'required|numeric|min:0.01|max:999999.99',
+            'purchase_link' => 'required|url|max:255',
+            'image_url' => 'url|max:255',
         ]);
 
         $gift = Gift::find($id);

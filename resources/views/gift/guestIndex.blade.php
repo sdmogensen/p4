@@ -24,7 +24,7 @@
                         <td class='top_align'>
                             Price: ${{ $gift->price }}<br><br>
                             Purchase Link:<br>
-                            <a href='{{ $gift->url }}'> {{ $gift->url }} </a><br><br>
+                            <a href='{{ $gift->url }}'>{{ $gift->url }}</a><br><br>
                             @if($gift->purchased) <span class='green'> Purchased </span>
                             @else
                                 <span class='red'> Unpurchased </span><br>

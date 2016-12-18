@@ -6,7 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Retailer extends Model
 {
-    /* Relationship method */
     public function gifts() {
         # Retailer has many gifts
         return $this->hasMany('Gifter\Gift');

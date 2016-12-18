@@ -38,7 +38,7 @@
                     <label for='name'><span class='red'>*</span>Gift Name:</label>
                 </td>
                 <td class='left_justify'>
-                    <input type='text' class='input2' id='name' name='gift_name' value='{{ old('gift_name','gift name') }}' autofocus>
+                    <input type='text' class='input2' id='name' name='gift_name' value='{{ old('gift_name') }}' autofocus>
                 </td>
             </tr>
             @if ($errors->has('gift_name'))
@@ -50,7 +50,7 @@
                     <label for='price'><span class='red'>*</span>Price:</label>
                 </td>
                 <td class='left_justify'>
-                    <input type='text' class='input2' id='price' name='price' value='{{ old('price','23.05') }}'>
+                    <input type='text' class='input2' id='price' name='price' value='{{ old('price') }}'>
                 </td>
             </tr>
 
@@ -62,7 +62,7 @@
                     <label for='url'><span class='red'>*</span>Purchase Link:</label>
                 </td>
                 <td class='left_justify'>
-                    <input type='text' class='input2' id='url' name='purchase_link' value='{{ old('purchase_link','http://www.amazon.com') }}'>
+                    <input type='text' class='input2' id='url' name='purchase_link' value='{{ old('purchase_link') }}'>
                 </td>
             </tr>
 
@@ -74,7 +74,7 @@
                     <label for='image'>Image url:</label>
                 </td>
                 <td class='left_justify'>
-                    <input type='text' class='input2' id='image' name='image_url' value='{{ old('image_url','https://images-na.ssl-images-amazon.com/images/G/01/SellerCentral/legal/amazon-logo_black.png') }}'>
+                    <input type='text' class='input2' id='image' name='image_url' value='{{ old('image_url') }}'>
                 </td>
             </tr>
             @if ($errors->has('image_url'))

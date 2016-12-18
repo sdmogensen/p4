@@ -22,7 +22,7 @@ class RetailerController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'retailer_name' => 'required|unique:retailers,name',
+            'retailer_name' => 'required|max:255|unique:retailers,name',
         ]);
 
         $retailer = new Retailer();

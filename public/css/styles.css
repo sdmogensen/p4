@@ -5,53 +5,9 @@ body {
     text-align: center;
 }
 
-h2 {
-    margin: 0px;
-}
-
-.centered_table {
-    margin:auto;
-}
-
-.right_justify {
-    text-align: right;
-}
-
-.left_justify {
-    text-align: left;
-}
-
-.top_align {
-    vertical-align: top;
-}
-
-.checkbox {
-    cursor:pointer;
-}
-
 .logo {
     margin: auto;
     width: 200px;
-}
-
-.small {
-    font-size:11pt;
-}
-
-.smaller {
-    font-size:10pt;
-}
-
-.smallest {
-    font-size:9pt;
-}
-
-.big {
-    font-size:14pt;
-}
-
-.bigger {
-    font-size:16pt;
 }
 
 .boxed {
@@ -92,7 +48,6 @@ h2 {
     cursor:pointer
 }
 
-
 .inline_button {
     background: darkgray;
     color: navy;
@@ -117,6 +72,33 @@ h2 {
      cursor: pointer;
 }
 
+.flash_message {
+    width:100%;
+    text-align:center;
+    padding:5px;
+    position:fixed;
+    top:0;
+    left:0;
+    background-color:yellow;
+    font-weight:bold;
+}
+
+.centered_table {
+    margin:auto;
+}
+
+.right_justify {
+    text-align: right;
+}
+
+.left_justify {
+    text-align: left;
+}
+
+.top_align {
+    vertical-align: top;
+}
+
 .error {
     color: red;
     font-size:10pt;
@@ -138,21 +120,30 @@ h2 {
     opacity: 0.4;
 }
 
+.small {
+    font-size:11pt;
+}
+
+.smaller {
+    font-size:10pt;
+}
+
+.smallest {
+    font-size:9pt;
+}
+
+.big {
+    font-size:14pt;
+}
+
+.bigger {
+    font-size:16pt;
+}
+
 .bold {
     font-weight: bold;
 }
 
 .bolder {
     font-weight: bolder;
-}
-
-.flash_message {
-    width:100%;
-    text-align:center;
-    padding:5px;
-    position:fixed;
-    top:0;
-    left:0;
-    background-color:yellow;
-    font-weight:bold;
 }
