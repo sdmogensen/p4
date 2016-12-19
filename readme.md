@@ -20,7 +20,7 @@ A logged in user has the ability to create and add gifts to their wish list, edi
  -Deleting a gift from a wish list
 
 ## Demo
-<>
+<http://www.screencast.com/t/XFJcdMRpeydw>
 
 ## Planning doc:
 <https://docs.google.com/document/d/1SyuZiNBrXCVymmGHqpEOsyao6U8oKcKThvujBuzjd-E>
